@@ -1,3 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind configuration file */
+
+/*  Import the google font to be used in our project ( Inter )*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
+
+/* CUSTOM CLASSES */
+.required:after {
+  content: " *";
+  color: #b91c1c;
+}
