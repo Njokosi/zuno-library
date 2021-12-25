@@ -8,7 +8,7 @@ module.exports = {
     "./src/templates/**/*.{js,ts,jsx,tsx}",
     "./src/layout/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: false, // or 'media' or 'class'
+  // darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
