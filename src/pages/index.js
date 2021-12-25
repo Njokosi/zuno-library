@@ -1,8 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
+
 import { Main } from "../templates/Main";
 import { Meta } from "../layout/Meta";
 import { Hero, Nav } from '../components';
+
+
 
 export default function Home() {
   return (

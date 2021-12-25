@@ -1,9 +1,10 @@
 import React from "react";
+import MediaList from "./MediaList";
 
-const Books = () => {
+const Books = (props) => {
   return (
-    <div classNameName="px-4 pt-32 md:px-8">
-      <div className="grid grid-cols-1 gap-y-16 gap-x-12 md:grid-cols-2 lg:grid-cols-3">
+    <div className="px-4 pt-32 md:px-8">
+      <MediaList>
         <div
           className="flex flex-col px-4 pt-0 pb-4 md:px-10 md:pb-12"
           style={{ background: "#F7F7FB" }}
@@ -121,7 +122,7 @@ const Books = () => {
             </a>
           </div>
         </div>
-      </div>
+        </MediaList>
     </div>
   );
 };

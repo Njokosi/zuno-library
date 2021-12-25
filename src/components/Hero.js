@@ -5,13 +5,13 @@ const Hero = () => {
   return (
     <div className="mt-[4rem] px-8 flex items-center justify-between relative">
       <div className="flex-wrap w-1/2 pr-2">
-        <div class="flex-none relative z-10 flex flex-col items-start lg:pt-10 max-w-screen-sm mx-auto lg:max-w-2xl lg:mx-0 lg:pr-20 mb-12 sm:mb-16 lg:mb-0">
-          <h1 class="order-1 text-3xl sm:text-5xl sm:leading-none font-extrabold tracking-tight text-slate-800 mb-4">
-            <span class="text-emerald-600">Get your new Book</span> with the
+        <div className="relative z-10 flex flex-col items-start flex-none max-w-screen-sm mx-auto mb-12 lg:pt-10 lg:max-w-2xl lg:mx-0 lg:pr-20 sm:mb-16 lg:mb-0">
+          <h1 className="order-1 mb-4 text-3xl font-extrabold tracking-tight sm:text-5xl sm:leading-none text-slate-800">
+            <span className="text-emerald-600">Get your new Book</span> with the
             BEST price
           </h1>
 
-          <p class="order-2 leading-relaxed mb-8">
+          <p className="order-2 mb-8 leading-relaxed">
             Over 500+ professionally designed, fully responsive, expertly
             crafted component examples you can drop into your Tailwind projects
             and customize to your heart’s content. Get started by checking out
@@ -19,16 +19,16 @@ const Hero = () => {
             categories you're most curious about.
           </p>
 
-          <div class="order-2 w-full text-center grid grid-cols-1 gap-3 sm:flex sm:gap-0 sm:space-x-6">
+          <div className="grid order-2 w-full grid-cols-1 gap-3 text-center sm:flex sm:gap-0 sm:space-x-6">
             <a
               href="/preview"
-              class="text-sm font-semibold bg-white text-gray-900 py-3 px-4 rounded-lg hover:bg-gray-300 hover:text-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900"
+              className="px-4 py-3 text-sm font-semibold text-gray-900 bg-white rounded-lg hover:bg-gray-300 hover:text-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900"
             >
               Try it out
             </a>
             <a
               href="#components"
-              class="text-sm font-semibold bg-gray-800 text-gray-300 py-3 px-4 rounded-lg hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900"
+              className="px-4 py-3 text-sm font-semibold text-gray-300 bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900"
             >
               Browse everything
             </a>
