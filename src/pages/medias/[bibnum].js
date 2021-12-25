@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
 import { format as fnsFormat, parseISO } from "date-fns";
 import { fetcher } from "../../utils/fetcher";
 import { Main } from "../../templates/Main";
@@ -11,9 +13,9 @@ import useSWR from "swr";
 import { EmptyMediaCard, MediaCardDetail } from "../../components/cards";
 import { CheckoutLineChart } from "../../components/charts";
 
-function GetMediaDetail() {
+function GetMediaDetail(bibnum) {
   const { data, error } = useSWR(
-    "http://127.0.0.1:8000/api/v1/medias/3277676/",
+    `http://127.0.0.1:8000/api/v1/medias/${bibnum}/`,
     fetcher
   );
 
@@ -24,9 +26,9 @@ function GetMediaDetail() {
   };
 }
 
-function GetMediaCheckoutDetail() {
+function GetMediaCheckoutDetail(bibnum) {
   const { data, error } = useSWR(
-    "http://127.0.0.1:8000/api/v1/medias/checkout/3277676/",
+    `http://127.0.0.1:8000/api/v1/medias/checkout/${bibnum}/`,
     fetcher
   );
 
@@ -37,10 +39,13 @@ function GetMediaCheckoutDetail() {
   };
 }
 
-export default function Media() {
-  const { media, isLoading, isError } = GetMediaDetail();
+export default function Media(props) {
+  const router = useRouter();
+  const bibnum = router.query.bibnum;
+
+  const { media, isLoading, isError } = GetMediaDetail(bibnum);
   const { checkout, isCheckoutLoading, isCheckoutError } =
-    GetMediaCheckoutDetail();
+    GetMediaCheckoutDetail(bibnum);
 
   let checkoutCountData =
     checkout &&
@@ -53,9 +58,6 @@ export default function Media() {
       return result;
     }, {});
 
-  console.log("Media data: ", media);
-  console.log("Media checkout data: ", checkout);
-  console.log("Checkout count: ", checkoutCountData);
 
   return (
     <Main
@@ -70,7 +72,9 @@ export default function Media() {
         <Nav />
 
         {isLoading ? (
-          <LoadingMedias />
+          <div className="mt-24">
+            <LoadingMedias />
+          </div>
         ) : isError ? (
           <EmptyMediaCard message="An error occured or media not found" />
         ) : (

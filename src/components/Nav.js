@@ -29,13 +29,13 @@ const Nav = () => {
 
         <ul className="flex items-center hidden space-x-8 lg:flex">
           <li>
-            <Link href="/books">
+            <Link href="/medias">
               <a
                 aria-label="Our product"
                 title="Our product"
                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-emerald-accent-400"
               >
-                Books
+                Medias
               </a>
             </Link>
           </li>

@@ -20,7 +20,7 @@ import { EmptyMediaCard } from "../components/cards";
 
 function GetMediaList() {
   const { data, error } = useSWR(
-    "http://127.0.0.1:8000/api/v1/medias/",
+    `http://127.0.0.1:8000/api/v1/medias/`,
     fetcher
   );
 
@@ -68,20 +68,23 @@ export default function MediasList() {
           description="Browse different books, podcasts, stories ranging from fiction to non-fiction, engineering, science and development."
         />
 
-        
         {isLoading ? (
           <LoadingMedias />
         ) : isError ? (
           <EmptyMediaCard message="An error occurred" />
-        ) : 
-          medias && medias.length > 0 && (
+        ) : (
+          (medias && medias.length > 0 && (
             <MediaList>
               {medias.map((media) => (
-                <MediaDetail key={media.bibnum} title={media.title} />
+                <MediaDetail
+                  key={media.bibnum}
+                  title={media.title}
+                  id={media.bibnum}
+                />
               ))}
             </MediaList>
-          ) || <EmptyMediaCard message="No media available" />
-        }
+          )) || <EmptyMediaCard message="No media available" />
+        )}
       </div>
     </Main>
   );
