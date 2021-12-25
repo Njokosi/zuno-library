@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
+
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-const CheckoutLineChart = () => {
+const CheckoutLineChart = ({categories, data}) => {
+    
   const [options, setOptions] = useState({
     chart: {
       id: "line-chart",
@@ -11,23 +13,18 @@ const CheckoutLineChart = () => {
       },
     },
     xaxis: {
-      categories: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-      ],
+      categories: categories,
     },
   });
   const [series, setSeries] = useState([
     {
-      name: "Hours of Sleep",
-      data: [4.4, 3.5, 5.0, 4.2, 6.8, 8.1, 8.3],
+      name: "Number of Checkouts",
+      data: data,
     },
   ]);
+
+  
+
   return (
     <div className="chart">
       <Chart options={options} series={series} type="line" />

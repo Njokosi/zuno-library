@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-
+import { format as fnsFormat, parseISO } from "date-fns";
 import { fetcher } from "../../utils/fetcher";
 import { Main } from "../../templates/Main";
 import { Meta } from "../../layout/Meta";
@@ -37,17 +37,26 @@ function GetMediaCheckoutDetail() {
   };
 }
 
-
-
-
 export default function Media() {
   const { media, isLoading, isError } = GetMediaDetail();
   const { checkout, isCheckoutLoading, isCheckoutError } =
     GetMediaCheckoutDetail();
 
+  let checkoutCountData =
+    checkout &&
+    checkout.reduce(function (result, order) {
+      var day = fnsFormat(new Date(order.checkoutdatetime), "dd MMMM yyyy");
+      if (!result[day]) {
+        result[day] = 0;
+      }
+      result[day]++;
+      return result;
+    }, {});
+
   console.log("Media data: ", media);
   console.log("Media checkout data: ", checkout);
-  
+  console.log("Checkout count: ", checkoutCountData);
+
   return (
     <Main
       meta={
@@ -80,9 +89,14 @@ export default function Media() {
                 title="Checkout information"
                 description="View the number of times and when the book was checked out"
               />
-              <div className="max-w-4xl p-12 mx-auto border rounded-2xl border-slate-200">
-                <CheckoutLineChart checkout={checkout}/>
-              </div>
+              {checkoutCountData && (
+                <div className="max-w-4xl p-12 mx-auto border rounded-2xl border-slate-200">
+                  <CheckoutLineChart
+                    categories={Object.keys(checkoutCountData)}
+                    data={Object.values(checkoutCountData)}
+                  />
+                </div>
+              )}
             </>
           )
         )}
