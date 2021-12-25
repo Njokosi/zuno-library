@@ -12,7 +12,7 @@ import { EmptyMediaCard, MediaCardDetail } from "../../components/cards";
 
 function GetMediaDetail() {
   const { data, error } = useSWR(
-    "http://127.0.0.1:8000/api/v1/medias/723015/",
+    "http://127.0.0.1:8000/api/v1/medias/3277676/",
     fetcher
   );
 
@@ -23,10 +23,30 @@ function GetMediaDetail() {
   };
 }
 
+function GetMediaCheckoutDetail() {
+  const { data, error } = useSWR(
+    "http://127.0.0.1:8000/api/v1/medias/checkout/3277676/",
+    fetcher
+  );
+
+  return {
+    checkout: data,
+    isCheckoutLoading: !error && !data,
+    isCheckoutError: error,
+  };
+}
+
+
+
+
 export default function Media() {
   const { media, isLoading, isError } = GetMediaDetail();
+  const { checkout, isCheckoutLoading, isCheckoutError } =
+    GetMediaCheckoutDetail();
 
   console.log("Media data: ", media);
+  console.log("Media checkout data: ", checkout);
+  
   return (
     <Main
       meta={
@@ -59,6 +79,8 @@ export default function Media() {
                 title="Checkout information"
                 description="View the number of times and when the book was checked out"
               />
+              
+              
             </>
           )
         )}
