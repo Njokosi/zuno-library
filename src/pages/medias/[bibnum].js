@@ -9,6 +9,7 @@ import { LoadingMedias, Nav, Outro } from "../../components";
 
 import useSWR from "swr";
 import { EmptyMediaCard, MediaCardDetail } from "../../components/cards";
+import { CheckoutLineChart } from "../../components/charts";
 
 function GetMediaDetail() {
   const { data, error } = useSWR(
@@ -79,8 +80,9 @@ export default function Media() {
                 title="Checkout information"
                 description="View the number of times and when the book was checked out"
               />
-              
-              
+              <div className="max-w-4xl p-12 mx-auto border rounded-2xl border-slate-200">
+                <CheckoutLineChart checkout={checkout}/>
+              </div>
             </>
           )
         )}

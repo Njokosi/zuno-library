@@ -15,6 +15,7 @@ import {
   Nav,
   Outro,
 } from "../components";
+
 import { EmptyMediaCard } from "../components/cards";
 
 function GetMediaList() {
