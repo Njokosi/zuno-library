@@ -14,9 +14,9 @@ const Hero = () => {
           <p className="order-2 mb-8 leading-relaxed">
             Over 500+ professionally designed, fully responsive, expertly
             crafted component examples you can drop into your Tailwind projects
-            and customize to your heart’s content. Get started by checking out
+            and customize to your hearts content. Get started by checking out
             our free preview components, or browsing all of the examples in the
-            categories you're most curious about.
+            categories you are most curious about.
           </p>
 
           <div className="grid order-2 w-full grid-cols-1 gap-3 text-center sm:flex sm:gap-0 sm:space-x-6">

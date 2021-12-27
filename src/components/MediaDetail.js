@@ -8,12 +8,15 @@ const MediaDetail = ({ title, id }) => {
       className="flex flex-col px-4 pt-0 pb-4 md:px-10 md:pb-12"
       style={{ background: "#F7F7FB" }}
     >
-      <a href="/">
-        <img
-          className="object-cover w-full max-w-full -mt-8 rounded"
-          src="https://images.pexels.com/photos/1765033/pexels-photo-1765033.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-        />
-      </a>
+      <Link href={`/medias/${id}`}>
+        <a>
+          <img
+            className="object-cover w-full max-w-full -mt-8 rounded"
+            src="https://images.pexels.com/photos/1765033/pexels-photo-1765033.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          />
+        </a>
+      </Link>
+
       <div>
         <span className="inline-block px-2 my-8 ml-2 font-medium rounded-lg text-emerald-700 bg-emerald-100">
           Available
