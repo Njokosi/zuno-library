@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Link from 'next/link';
 function checkEmpty(s){
     if (s == null || s == undefined || s.length == 0) return '---'
     return s
@@ -18,12 +18,14 @@ const MediaCardDetail = ({
       className="flex flex-col px-4 pt-0 pb-4 mt-32 md:px-10 md:pb-12"
       style={{ background: "#F7F7FB" }}
     >
-      <a href="/course/whats-new-in-php-8">
-        <img
-          className="object-cover w-full max-w-md -mt-8 rounded"
-          src="https://images.pexels.com/photos/1765033/pexels-photo-1765033.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-        />
-      </a>
+      <Link href="/">
+        <a>
+          <img
+            className="object-cover w-full max-w-md -mt-8 rounded"
+            src="https://images.pexels.com/photos/1765033/pexels-photo-1765033.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          />
+        </a>
+      </Link>
 
       <div>
         <h2 className="inline-block px-2 my-8 font-medium border rounded-lg border-slate-500 ">
