@@ -15,7 +15,7 @@ import { CheckoutLineChart } from "../../components/charts";
 
 function GetMediaDetail(bibnum) {
   const { data, error } = useSWR(
-    `http://127.0.0.1:8000/api/v1/medias/${bibnum}/`,
+    `https://zunolibrary.herokuapp.com/api/v1/medias/${bibnum}/`,
     fetcher
   );
 
@@ -28,7 +28,7 @@ function GetMediaDetail(bibnum) {
 
 function GetMediaCheckoutDetail(bibnum) {
   const { data, error } = useSWR(
-    `http://127.0.0.1:8000/api/v1/medias/checkout/${bibnum}/`,
+    `https://zunolibrary.herokuapp.com/api/v1/medias/checkout/${bibnum}/`,
     fetcher
   );
 
@@ -57,7 +57,6 @@ export default function Media(props) {
       result[day]++;
       return result;
     }, {});
-
 
   return (
     <Main
