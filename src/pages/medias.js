@@ -34,7 +34,6 @@ function GetMediaList() {
 export default function MediasList() {
   const { medias, isLoading, isError } = GetMediaList();
 
-  console.log("Medias: ", medias);
   return (
     <Main
       meta={
