@@ -1,0 +1,14 @@
+/*  Import the google font to be used in our project ( Source sans pro )*/
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
+
+/* Import tailwind custom files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CUSTOM CLASSES */
+.required:after {
+  content:" *";
+  color: #B91C1C;
+}
